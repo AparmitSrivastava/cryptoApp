@@ -12,10 +12,10 @@ const useStyles=makeStyles(()=>({
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         width: "100%",
-        height: "50vh",
+        height: "55vh",
         display: "flex",
         // alignItems: "center",
-        paddingTop:45,  
+        paddingTop:10,  
         justifyContent: "center",
         // "&::before": {
         //   content: '""',
@@ -55,7 +55,6 @@ const Banner = () => {
                 variant='h2'
                 style={{
                     fontWeight:"bold",
-                    marginBottom:15,
                     fontFamily:"Montserrat",    
                 }}>
                     Crypto App
