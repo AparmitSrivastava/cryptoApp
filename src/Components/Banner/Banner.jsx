@@ -67,7 +67,7 @@ const Banner = () => {
                     textTransform:"capitalize",
                     fontFamily:"Montserrat"
                 }}>
-                    Get all info regarding your favourite Crypto currency
+                    Get all info regarding your favourite and trending Crypto currency
                 </Typography>
             </div>
             <Carousal/>
