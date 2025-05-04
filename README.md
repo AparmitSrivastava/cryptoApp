@@ -1,2 +1,2 @@
 # cryptoApp
-Tyring to create a crypto info app
+Tyring to create a crypto info app.
