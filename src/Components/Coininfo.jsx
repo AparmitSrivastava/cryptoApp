@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React from 'react'
 import { useState, useEffect } from 'react';
-import {CryptoState} from '../CryptoContext'
+import { CryptoState } from '../CryptoContext'
 import { HistoricalChart } from '../config/api'
-import { CircularProgress, createTheme, makeStyles, ThemeProvider } from '@material-ui/core';
+import { Button, CircularProgress, createTheme, makeStyles, ThemeProvider } from '@material-ui/core';
 import { Line } from 'react-chartjs-2';
+import { chartDays } from '../config/data';
+import Buttons from './Buttons';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -69,52 +71,78 @@ const Coininfo = ({ coin }) => {
   const classes = useStyles()
 
   return (
-   <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
+        {/* chart */}
         {
-        !HistoricData ? (
-          <CircularProgress
-          style={{color:"gold"}}
-          size={250}
-          thickness={1}/>
-         ) : (
-          <>
-          <Line
-          data={{
-            labels: HistoricData.map((coin)=>{
-              let date = new Date(coin[0])
-              let time = date.getHours() > 12 ?
-              `${date.getHours() - 12} : ${date.getMinutes()} PM`
-              :
-              `${date.getHours()} : ${date.getMinutes()} AM`
+          !HistoricData ? (
+            <CircularProgress
+              style={{ color: "gold" }}
+              size={250}
+              thickness={1} />
+          ) : (
+            <>
+              <Line
+                data={{
+                  labels: HistoricData.map((coin) => {
+                    let date = new Date(coin[0])
+                    let time = date.getHours() > 12 ?
+                      `${date.getHours() - 12} : ${date.getMinutes()} PM`
+                      :
+                      `${date.getHours()} : ${date.getMinutes()} AM`
 
-              return days===1 ? time : date.toLocaleDateString()
+                    return days === 1 ? time : date.toLocaleDateString()
 
-            }), // this gives labeling to x nd y axis
+                  }), // this gives labeling to x nd y axis
 
-            datasets:[
-              {data:HistoricData.map((coin)=>coin[1]),
-                label: `Price ( Past ${days} Days ) in ${currency}`,
-                borderColor: "rgb(14 , 129 , 253)",
-              }
-            ]
-          }}
-          />
-          </>
-         )
-        
+                  datasets: [
+                    {
+                      data: HistoricData.map((coin) => coin[1]),
+                      label: `Price ( Past ${days} Days ) in ${currency}`,
+                      borderColor: "rgb(14 , 129 , 253)",
+                    },
+                  ],
+                }}
+
+                options={{
+                  elements: {
+                    point: {
+                      radius: 1,
+                    },
+                  },
+                }}
+              />
+
+              {/* buttons */}
+              <div  
+              style={{
+                display: "flex",
+                marginTop: 20,
+                justifyContent: "space-around",
+                width: "100%",
+              }}>
+                {chartDays.map(day=>(
+                  <Buttons 
+                  key={day.value}
+                  onClick={() => {setdays(day.value);
+                    setflag(false);
+                  }}
+                  selected={day.value === days}
+                  >
+                    {day.label}
+                  </Buttons>
+                ))}
+              </div>
+
+
+
+
+            </>
+          )
+
         }
-
-      {/* chart */}
-
-
-
-
-      {/* buttons */}
-
-
       </div>
-   </ThemeProvider>
+    </ThemeProvider>
   )
 }
 
