@@ -40,7 +40,7 @@ const Header = () => {
               onClick={() => history.push('/')}  // Use history.push for navigation
               className={classes.title}
             >
-              CryptoPlace
+              Crypto View
             </Typography>
 
              {/* <Link to="/" className={classes.title} style={{ textDecoration: "none", color: "gold" }}>

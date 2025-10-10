@@ -57,7 +57,7 @@ const Banner = () => {
                     fontWeight:"bold",
                     fontFamily:"Montserrat",    
                 }}>
-                    Crypto App
+                    Crypto View
                 </Typography>
 
                 <Typography
