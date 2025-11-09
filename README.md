@@ -1,6 +1,6 @@
-# cryptoApp – Real-Time Crypto Trends & Graphs (GraphQL Powered)
+# cryptoApp – Real-Time Crypto Trends & Graphs
 
-CryptoTrack is a modern crypto web app that helps you monitor real-time cryptocurrency trends. Built with GraphQL, it offers a smooth and efficient experience for exploring the crypto market. Track the current price of top coins, explore detailed performance graphs, and follow the market with ease.
+CryptoTrack is a modern crypto web app that helps you monitor real-time cryptocurrency trends. Built with Chart.js, it offers a smooth and efficient experience for exploring the crypto market. Track the current price of top coins, explore detailed performance graphs, and follow the market with ease.
 
 ---
 
